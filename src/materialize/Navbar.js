@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withRouter} from "react-router-dom";
+import './Navbar.css';
 
 const BrandLink = withRouter(function (props) {
     return <a href={"/"} onClick={(evt) => {evt.preventDefault(); props.history.push(props.to)}} className={`brand-logo ${props.className}`}>{props.children}</a>

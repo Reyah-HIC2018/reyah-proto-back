@@ -41,12 +41,18 @@ export default class Dashboard extends Component {
 
     render() {
         return (
-            <div className={"ModelThumbList"}>
-                {
-                    this.templates.map((elem, idx) => (
-                        <ModelThumb key={idx} elemId={elem.id} name={elem.name} description={elem.description}/>
-                    ))
-                }
+            <div>
+                <div className={"PageTitleWrapper"}>
+                    <h2 className={"PageTitle"}>Modèles</h2>
+                    <div className={"PageUnderliner"}/>
+                </div>
+                <div className={"ModelThumbList"}>
+                    {
+                        this.templates.map((elem, idx) => (
+                            <ModelThumb key={idx} elemId={elem.id} name={elem.name} description={elem.description}/>
+                        ))
+                    }
+                </div>
             </div>
         );
     }

@@ -2,3 +2,20 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.PageTitleWrapper {
+    width: fit-content;
+    margin-bottom: 1.78rem;
+}
+
+.PageTitle {
+    color: #515151;
+    width: fit-content;
+    margin-bottom: 0;
+    font-size: 2em;
+}
+
+.PageUnderliner {
+    border-bottom: 1px solid #B1B1B1;
+    width: 80%;
+}
