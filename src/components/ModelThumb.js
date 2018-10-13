@@ -37,5 +37,5 @@ export default class ModelThumb extends Component {
 ModelThumb.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string,
-    elemId: PropTypes.number.isRequired
+    elemId: PropTypes.string.isRequired
 };

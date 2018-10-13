@@ -3,6 +3,11 @@
     flex-wrap: wrap;
 }
 
+.ModelThumbSpinner {
+    padding-top: 20%;
+    text-align: center;
+}
+
 .PageTitleWrapper {
     width: fit-content;
     margin-bottom: 1.78rem;
