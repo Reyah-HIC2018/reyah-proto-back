@@ -1,0 +1,4 @@
+.ModelThumbList {
+    display: flex;
+    flex-wrap: wrap;
+}

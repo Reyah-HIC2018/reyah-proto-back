@@ -1,0 +1,26 @@
+.ModelThumb {
+    width: calc(100% * 1/4 - 20px);
+    margin: 10px;
+    height: 400px;
+}
+
+.ModelThumb-bg-Img {
+    height: 75%;
+    background-size: cover;
+}
+
+@media screen and (max-width: 920px) {
+    .ModelThumb {
+        width: calc(100% * 1/2 - 20px);
+        margin: 10px;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .ModelThumb {
+        width: calc(100% - 20px);
+        margin: 10px;
+        height: 400px;
+    }
+}
