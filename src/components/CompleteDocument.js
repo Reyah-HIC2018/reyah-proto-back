@@ -49,7 +49,9 @@ export default class CompleteDocument extends Component {
 
     inputKeyPress = (evt) => {
         if (evt.key === 'Enter') {
-            this.state.templates.fields[this.state.stepN].value = this.input;
+            let templates = this.state.templates;
+            templates.fields[this.state.stepN].value = this.input;
+            this.setState({templates});
             evt.currentTarget.value = '';
             this.clickNext();
         }
