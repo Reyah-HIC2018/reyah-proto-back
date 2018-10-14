@@ -7,12 +7,13 @@ export default class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            templates: []
+            templates: [],
+            fetched: false,
         };
     }
 
     _handleFetchResponse = (json) => {
-        this.setState({templates: json.data});
+        this.setState({templates: json.data, fetched: true});
     };
 
     componentDidMount() {
@@ -36,7 +37,7 @@ export default class Dashboard extends Component {
                     <div className={'PageUnderliner'}/>
                 </div>
                 {(() => {
-                    if (this.state.templates.length)
+                    if (this.state.fetched)
                         return (
                             <div className={'ModelThumbList'}>
                                 {

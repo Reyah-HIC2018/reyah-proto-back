@@ -1,27 +1,28 @@
 import React, {Component} from 'react';
-import {Button, Preloader} from 'react-materialize';
+import {Button, Preloader, Row, Col} from 'react-materialize';
 import './Dashboard.css';
 import './Question.css';
-import Question from "./Question";
 
 export default class CompleteDocument extends Component {
     constructor(props) {
         super(props);
-        this.input = '';
         this.state = {
             stepN: 0,
             templates: {
                 fields: []
             },
             fetched: false,
+            input: '',
         };
     }
 
     _handleFetchResponse = (json) => {
-        this.setState({
-            templates: json,
-            fetched: true,
-        });
+        if (json)
+            this.setState({
+                templates: json,
+                fetched: true,
+                input: json.fields[0].value || '',
+            });
     };
 
     componentDidMount() {
@@ -39,23 +40,23 @@ export default class CompleteDocument extends Component {
 
     clickNext = () => {
         let templates = this.state.templates;
+        templates.fields[this.state.stepN].value = this.state.input;
         this.setState({templates});
         if (this.isLastStep()) {
             this.props.history.push('/')
         } else {
-            this.setState({stepN: this.state.stepN + 1})
+            this.setState({stepN: this.state.stepN + 1, input: this.state.templates.fields[this.state.stepN + 1].value || ''})
         }
     };
 
     inputKeyPress = (evt) => {
         if (evt.key === 'Enter') {
-            let templates = this.state.templates;
-            templates.fields[this.state.stepN].value = this.input;
-            this.setState({templates});
-            evt.currentTarget.value = '';
             this.clickNext();
         }
-        this.input = evt.currentTarget.value;
+    };
+
+    inputChange = (evt) => {
+        this.setState({input: evt.currentTarget.value});
     };
 
     isLastStep = () => {
@@ -78,10 +79,27 @@ export default class CompleteDocument extends Component {
                 {(() => {
                     if (this.state.fetched) {
                         let currentField = this.state.templates.fields[this.state.stepN];
+                        console.log(currentField);
                         return (
                             <div>
                                 {this.getPrettyTitle()}
-                                <Question onInputKeyPress={this.inputKeyPress} input={currentField.value || ''} name={currentField.name}/>
+                                <div className="questions">
+                                    <h3 className={"QuestionTitle"}>
+                                        Veuillez compléter le champs suivant
+                                    </h3>
+                                    <div className={"QuestionField"}>
+                                        <Row>
+                                            <Col s={3}>
+                                                <h4 className={"QuestionFieldName"}>
+                                                    {currentField.name}
+                                                </h4>
+                                            </Col>
+                                            <Col s={9}>
+                                                <input className={"QuestionFieldInput"} onKeyPress={this.inputKeyPress} onChange={this.inputChange} value={this.state.input}/>
+                                            </Col>
+                                        </Row>
+                                    </div>
+                                </div>
                                 <Button onClick={this.clickNext} className={"waves-effect waves-block waves-light"}>{buttonName}</Button>
                             </div>
                         );

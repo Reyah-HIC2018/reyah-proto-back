@@ -1,29 +1,24 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Row, Col} from 'react-materialize';
 import './ModelThumb.css';
 
 export default class Question extends Component {
+    constructor(props) {
+        super(props);
+
+        // console.log(this.props.input);
+        this.state = {
+            fieldInput: this.props.input
+        };
+        console.log("STATE", this.state);
+    }
+
+    onFieldChange = (evt) => {
+        this.setState({fieldInput: evt.currentTarget.value});
+    };
     render() {
-        return (
-            <div className="questions">
-                <h3 className={"QuestionTitle"}>
-                    Veuillez compléter le champs suivant
-                </h3>
-                <div className={"QuestionField"}>
-                    <Row>
-                        <Col s={3}>
-                            <h4 className={"QuestionFieldName"}>
-                                {this.props.name}
-                            </h4>
-                        </Col>
-                        <Col s={9}>
-                            <input className={"QuestionFieldInput"} onKeyPress={this.props.onInputKeyPress} defaultValue={this.props.input}/>
-                        </Col>
-                    </Row>
-                </div>
-            </div>
-        )
+        console.log('I RERENDER', this.props, this.props.input);
+        return (<div></div>)
     }
 }
 
