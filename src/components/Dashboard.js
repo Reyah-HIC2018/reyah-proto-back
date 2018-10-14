@@ -41,7 +41,7 @@ export default class Dashboard extends Component {
                             <div className={'ModelThumbList'}>
                                 {
                                     this.state.templates.map((elem, idx) => (
-                                        <ModelThumb key={idx} elemId={elem.id} name={elem.name}
+                                        <ModelThumb key={idx} elemId={elem.id} name={elem.name} thumb={`https://reyah-hic2018.scalingo.io/${elem.thumb}`}
                                                     description={elem.description}/>
                                     ))
                                 }
