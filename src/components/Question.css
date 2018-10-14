@@ -1,3 +1,31 @@
-.questions {
+.ModelTitle {
+    color: #515151;
+    width: fit-content;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
 
+.QuestionTitle {
+    color: #515151;
+    width: fit-content;
+    margin-bottom: 100px;
+    font-size: 1.7em;
+}
+
+.QuestionField {
+}
+
+.QuestionField .QuestionFieldName {
+    color: #515151;
+    width: fit-content;
+    margin-bottom: 0;
+    font-size: 1.5em;
+    text-transform:capitalize;
+}
+
+.QuestionField .QuestionFieldInput {
+    color: #515151;
+    width: 100%;
+    margin-bottom: 100px;
+    font-size: 1.7em;
 }
