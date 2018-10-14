@@ -113,7 +113,7 @@ export default class CompleteDocument extends Component {
                                     {this.getPrettyTitle()}
                                     <div className="questions">
                                         <h3 className={"QuestionTitle"}>
-                                            Veuillez compléter le champs suivant
+                                            Veuillez compléter le champ suivant
                                         </h3>
                                         <div className={"QuestionField"}>
                                             <Row>
