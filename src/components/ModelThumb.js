@@ -18,14 +18,14 @@ export default class ModelThumb extends Component {
                 <WaveImage elemId={this.props.elemId}/>
                 <div className="card-content">
                     <span
-                        className="card-title activator grey-text text-darken-4">{this.props.name}<i
+                        className="card-title activator grey-text text-darken-4 ModelThumbTitle">{this.props.name}<i
                         className="material-icons right">more_vert</i></span>
                     <p>
                         <Link to={`/model/${this.props.elemId}`}>Utiliser ce model</Link>
                     </p>
                 </div>
                 <div className="card-reveal">
-                    <span className="card-title grey-text text-darken-4">{this.props.name}<i
+                    <span className="card-title grey-text text-darken-4 ModelThumbTitle">{this.props.name}<i
                         className="material-icons right">close</i></span>
                     <p>{this.props.description}</p>
                 </div>

@@ -5,6 +5,10 @@
     font-size: 2em;
 }
 
+.ModelNameTitle {
+    text-transform: capitalize;
+}
+
 .QuestionTitle {
     color: #515151;
     width: fit-content;
@@ -20,7 +24,7 @@
     width: fit-content;
     margin-bottom: 0;
     font-size: 1.5em;
-    text-transform:capitalize;
+    text-transform: capitalize;
 }
 
 .QuestionField .QuestionFieldInput {

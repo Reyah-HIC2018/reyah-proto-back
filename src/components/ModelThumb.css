@@ -4,6 +4,10 @@
     height: 400px;
 }
 
+.ModelThumbTitle {
+    text-transform: capitalize;
+}
+
 .ModelThumb-bg-Img {
     height: 75%;
     background-size: cover;

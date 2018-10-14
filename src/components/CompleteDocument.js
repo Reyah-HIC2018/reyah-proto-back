@@ -66,7 +66,7 @@ export default class CompleteDocument extends Component {
     getPrettyTitle = () => {
         return (
             <h1 className={"ModelTitle"}>
-                Nous devons vérifier ensemble <strong>{this.state.templates.fields.length}</strong> {'information' + (this.state.templates.fields.length > 1 ? 's' : '')} sur <i>{this.state.templates.name}</i>
+                Nous devons vérifier ensemble <strong>{this.state.templates.fields.length}</strong> {'information' + (this.state.templates.fields.length > 1 ? 's' : '')} sur <i className={"ModelNameTitle"}>{this.state.templates.name}</i>
             </h1>
         )
     };
