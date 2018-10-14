@@ -6,6 +6,7 @@ import Dashboard from "./components/Dashboard";
 import Account from "./components/Account";
 import NotFound from "./components/NotFound";
 import CompleteDocument from "./components/CompleteDocument";
+import GeneratedDocument from "./components/GeneratedDocument";
 
 class App extends Component {
     render() {
@@ -17,6 +18,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path={"/"} component={Dashboard}/>
                             <Route path={"/model/:id"} component={CompleteDocument}/>
+                            <Route path={"/generated"} component={GeneratedDocument}/>
                             <Route exact path={"/account"} component={Account}/>
                             <Route path={"/"} component={NotFound} />
                         </Switch>
