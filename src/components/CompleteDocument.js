@@ -19,12 +19,13 @@ export default class CompleteDocument extends Component {
     }
 
     _handleFetchResponse = (json) => {
-        if (json)
+        if (json) {
             this.setState({
                 templates: json,
                 fetched: true,
                 input: json.fields[0].value || '',
             });
+        }
     };
 
     componentDidMount() {
@@ -37,24 +38,6 @@ export default class CompleteDocument extends Component {
                 return resp.json();
             })
             .then(json => this._handleFetchResponse(json))
-            .catch(err => console.error(err))
-    }
-
-
-    getImageUrl() {
-        fetch("https://reyah-hic2018.scalingo.io/generate/" + this.props.match.params.id, {
-            method: 'GET'
-        })
-            .then(resp => {
-                if (resp.status >= 400)
-                    return console.error('Invalid response code');
-                return resp.json();
-            })
-            .then(json => {
-                console.log("JSON", json);
-                if (json)
-                    this.setState({fetched: true, finalImgUrl: json.message});
-            })
             .catch(err => console.error(err))
     }
 
@@ -164,13 +147,6 @@ export default class CompleteDocument extends Component {
                 :
                 <div className={"ImageRender"}>
                     <img src={"https://reyah-hic2018.scalingo.io/generate/" + this.props.match.params.id} alt={"Final document"}/>
-                    {/*{*/}
-                        {/*(this.state.fetched) ?*/}
-                            {/*<Preloader/>*/}
-                            {/*:*/}
-                            {/*console.log(this.state.finalImgUrl)*/}
-
-                    {/*}*/}
                 </div>
 
         )
