@@ -59,7 +59,7 @@ export default class CompleteDocument extends Component {
     }
 
     sendEndData = (data) => {
-        this.setState({fetched: false, isFinished: true});
+        this.setState({fetched: false});
         fetch('https://reyah-hic2018.scalingo.io/models/' + this.props.match.params.id, {
             method: 'PUT',
             headers: {
@@ -73,7 +73,7 @@ export default class CompleteDocument extends Component {
                 return resp.json();
             })
             .then(json => {
-                this.getImageUrl();
+                this.setState({isFinished: true});
             })
             .catch(err => console.error(err))
     };
@@ -162,17 +162,17 @@ export default class CompleteDocument extends Component {
                     })()}
                 </div>
                 :
-                <div>
-                    {
-                        (this.state.fetched) ?
-                            <Preloader/>
-                            :
-                            console.log(this.state.finalImgUrl)
+                <div className={"ImageRender"}>
+                    <img src={"https://reyah-hic2018.scalingo.io/generate/" + this.props.match.params.id} alt={"Final document"}/>
+                    {/*{*/}
+                        {/*(this.state.fetched) ?*/}
+                            {/*<Preloader/>*/}
+                            {/*:*/}
+                            {/*console.log(this.state.finalImgUrl)*/}
 
-                    }
+                    {/*}*/}
                 </div>
 
         )
     }
 }
-                            {/*<img src={this.state.finalImgUrl} alt={"Final document"}/>*/}
